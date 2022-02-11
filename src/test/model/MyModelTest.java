@@ -34,6 +34,7 @@ class RecipeTest {
     public void testContainsRecipe() {
         assertEquals(rc1, rb1.containsRecipe(rc1.getRecipeTitle()));
         assertNotEquals(rc2, rb1.containsRecipe(rc1.getRecipeTitle()));
+        assertNull( rb1.containsRecipe("name"));
     }
 
     @Test

@@ -36,6 +36,9 @@ public class Main {
 
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: adds index to recipe book to make the recipe book look nicer.
     public static void printTitleOfRecipe(ArrayList<Recipe> recipes) {
         int count = 1;
         for (Recipe recipe : recipes) {
@@ -44,6 +47,9 @@ public class Main {
         }
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: makes a new recipe and add it to the recipe book
     public static void addRecipe(RecipeBook recipeBook) {
         System.out.println("please input title of your recipe");
         String title = sc.next();
@@ -54,6 +60,9 @@ public class Main {
         recipeBook.makeRecipe(title, rating, info);
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: change ann existing recipe's rating
     public static void changeRecipeRating(RecipeBook recipeBook) {
         printTitleOfRecipe(recipeBook.getRecipes());
         System.out.println("Please input the recipe you want to rate");

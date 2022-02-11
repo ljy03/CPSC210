@@ -33,6 +33,7 @@ public class Recipe {
         return recipeTitle;
     }
 
+    //Effects : set recipe rating
     public void setRecipeRating(int newRating) {
         recipeRating = newRating;
     }
