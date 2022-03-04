@@ -25,3 +25,9 @@ As a user, I want to be able to view a list of the titles of the recipes in my c
 As a user, I want to be able to select a recipe in my collection and view the recipe in detail
 
 As a user, I want to be able to select a recipe in my collection and rate it on a scale of one to five stars
+
+
+
+As a user, I want to be able to save my recipe and ratings to recipe book
+
+As a user, I want to be able to be able to load my recipe and ratings to recipe book

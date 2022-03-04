@@ -1,8 +1,10 @@
 package model;
 
 import javafx.scene.effect.Effect;
+import org.json.JSONObject;
+import persistence.Writable;
 
-public class Recipe {
+public class Recipe implements Writable {
 
     private String recipeTitle;
     private int recipeRating;
@@ -36,6 +38,15 @@ public class Recipe {
     //Effects : set recipe rating
     public void setRecipeRating(int newRating) {
         recipeRating = newRating;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("recipeTitle",recipeTitle);
+        json.put("recipeRating",recipeRating);
+        json.put("actualRecipe",actualRecipe);
+        return json;
     }
 
 

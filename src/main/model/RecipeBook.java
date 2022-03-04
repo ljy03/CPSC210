@@ -1,18 +1,23 @@
 package model;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class RecipeBook {
+public class RecipeBook implements Writable {
 
-    private String bookTitle;
     private ArrayList<Recipe> recipes;
+    private String bookTitle;
 
 
-    public RecipeBook() {
+    public RecipeBook(String title) {
         recipes = new ArrayList<>();
+        this.bookTitle = title;
     }
 
     public ArrayList<Recipe> getRecipes() {
@@ -62,4 +67,32 @@ public class RecipeBook {
     public void changeRecipeRating(Recipe recipe, int newRating) {
         recipe.setRecipeRating(newRating);
     }
+
+    public void addRecipe(Recipe recipe) {
+        recipes.add(recipe);
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("bookTitle",bookTitle);
+        json.put("recipes",recipeBookToJson());
+        return json;
+    }
+
+    private JSONArray recipeBookToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Recipe r : recipes) {
+            jsonArray.put(r.toJson());
+        }
+
+        return jsonArray;
+
+    }
 }
+
+

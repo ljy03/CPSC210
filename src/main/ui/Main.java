@@ -16,7 +16,8 @@ public class Main {
         while (!end) {
             System.out.println("input 1 to see the list of recipes,"
                     + " 2 to add new recipe to recipe book, 3 to view an exist recipe,"
-                    + " 4 to change rating of an exist recipe, 5 to end program");
+                    + " 4 to change rating of an exist recipe, 5 to save recipe book, 6 to load recipe book"
+                    + " 7 to end program");
             int instruction = sc.nextInt();
             if (instruction == 1) {
                 printTitleOfRecipe(recipeBook.getRecipes());
@@ -24,16 +25,18 @@ public class Main {
                 addRecipe(recipeBook);
             } else if (instruction == 3) {
                 printTitleOfRecipe(recipeBook.getRecipes());
-                String name = sc.next();
+                String name = sc.nextLine();
                 System.out.println(recipeBook.displaySelectedRecipe(recipeBook.containsRecipe(name)));
             } else if (instruction == 4) {
                 changeRecipeRating(recipeBook);
             } else if (instruction == 5) {
                 end = true;
+            } else if (instruction == 6) {
+
+            } else if (instruction == 7) {
+                end = true;
             }
-
         }
-
     }
 
 
@@ -52,11 +55,11 @@ public class Main {
     //EFFECTS: makes a new recipe and add it to the recipe book
     public static void addRecipe(RecipeBook recipeBook) {
         System.out.println("please input title of your recipe");
-        String title = sc.next();
+        String title = sc.nextLine();
         System.out.println("please input your recipe's rating");
         int rating = sc.nextInt();
         System.out.println("please input your recipe");
-        String info = sc.next();
+        String info = sc.nextLine();
         recipeBook.makeRecipe(title, rating, info);
     }
 
@@ -66,11 +69,13 @@ public class Main {
     public static void changeRecipeRating(RecipeBook recipeBook) {
         printTitleOfRecipe(recipeBook.getRecipes());
         System.out.println("Please input the recipe you want to rate");
-        String newRatingRecipeName = sc.next();
+        String newRatingRecipeName = sc.nextLine();
         System.out.println("Please input the rating");
         int newRating = sc.nextInt();
         recipeBook.changeRecipeRating(recipeBook.containsRecipe(newRatingRecipeName), newRating);
         System.out.println(recipeBook.displaySelectedRecipe(recipeBook.containsRecipe(newRatingRecipeName)));
     }
+
+
 
 }
