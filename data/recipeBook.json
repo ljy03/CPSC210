@@ -1,0 +1,20 @@
+{
+    "recipes": [
+        {
+            "actualRecipe": "tim2",
+            "recipeTitle": "tim",
+            "recipeRating": 3
+        },
+        {
+            "actualRecipe": "dasd",
+            "recipeTitle": "2",
+            "recipeRating": 3
+        },
+        {
+            "actualRecipe": "5",
+            "recipeTitle": "dajik",
+            "recipeRating": 4
+        }
+    ],
+    "bookTitle": "My RecipeBook"
+}

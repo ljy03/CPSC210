@@ -1,0 +1,15 @@
+{
+    "recipes": [
+        {
+            "actualRecipe": "sss",
+            "recipeTitle": "ss",
+            "recipeRating": 5
+        },
+        {
+            "actualRecipe": "www",
+            "recipeTitle": "ww",
+            "recipeRating": 4
+        }
+    ],
+    "bookTitle": "My RecipeBook"
+}
