@@ -19,7 +19,7 @@ class RecipeTest {
     public void setup() {
         rc1 = new Recipe("title1", 5, "info1");
         rc2 = new Recipe("title2", 4, "info2");
-        rb1 = new RecipeBook();
+        rb1 = new RecipeBook("My RecipeBook");
         recipes = rb1.getRecipes();
         recipes.add(rc1);
     }

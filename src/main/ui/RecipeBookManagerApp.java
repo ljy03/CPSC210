@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
 
 public class RecipeBookManagerApp {
     private static final String JSON_STORE = "./data/recipeBook.json";
@@ -37,6 +38,7 @@ public class RecipeBookManagerApp {
         while (!end) {
             displayMenu();
             command = input.nextInt();
+            input.nextLine();
 
             if (command == 0) {
                 end = true;
@@ -56,7 +58,7 @@ public class RecipeBookManagerApp {
         System.out.println("\t3 -> view an exist recipe");
         System.out.println("\t4 -> change rating of an exist recipe");
         System.out.println("\t5 -> save recipe book");
-        System.out.println("\t6 -> save recipe book");
+        System.out.println("\t6 -> load recipe book");
         System.out.println("\t0 -> quit program");
 
     }
@@ -99,6 +101,7 @@ public class RecipeBookManagerApp {
         String title = input.nextLine();
         System.out.println("please input your recipe's rating");
         int rating = input.nextInt();
+        input.nextLine();
         System.out.println("please input your recipe");
         String info = input.nextLine();
         recipeBook.makeRecipe(title, rating, info);
@@ -113,6 +116,7 @@ public class RecipeBookManagerApp {
         String newRatingRecipeName = input.nextLine();
         System.out.println("Please input the rating");
         int newRating = input.nextInt();
+        input.nextLine();
         recipeBook.changeRecipeRating(recipeBook.containsRecipe(newRatingRecipeName), newRating);
         System.out.println(recipeBook.displaySelectedRecipe(recipeBook.containsRecipe(newRatingRecipeName)));
     }

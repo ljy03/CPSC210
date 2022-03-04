@@ -49,16 +49,15 @@ public class RecipeBook implements Writable {
         if (recipe != null) {
             return displayRecipe(recipe);
         }
-        String falseStatement = "There are no Recipe with the given title";
-        return falseStatement;
+        return "There are no Recipe with the given title";
 
     }
 
     //EFFECTS: transform recipe to strings to display recipe.
     public String displayRecipe(Recipe recipe) {
-        String realRecipe = recipe.getRecipeTitle() + "\n"
+        return recipe.getRecipeTitle() + "\n"
                 + recipe.getActualRecipe() + "\n" + recipe.getRecipeRating();
-        return realRecipe;
+
     }
 
     //REQUIRES: 5 >= rating >= 0
@@ -68,10 +67,12 @@ public class RecipeBook implements Writable {
         recipe.setRecipeRating(newRating);
     }
 
+    //add recipe to recipeBook
     public void addRecipe(Recipe recipe) {
         recipes.add(recipe);
     }
 
+    //get bookTitle
     public String getBookTitle() {
         return bookTitle;
     }
@@ -84,6 +85,7 @@ public class RecipeBook implements Writable {
         return json;
     }
 
+    //return recipes as jsonArray
     private JSONArray recipeBookToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Recipe r : recipes) {
