@@ -39,15 +39,15 @@ class RecipeTest {
 
     @Test
     public void testDisplayRecipe() {
-        assertEquals(rc1.getRecipeTitle() + "\n"
-                + rc1.getActualRecipe() + "\n" + rc1.getRecipeRating(), rb1.displayRecipe(rc1));
+        assertEquals(rc1.getRecipeTitle() + " "
+                + rc1.getActualRecipe() + " " + rc1.getRecipeRating(), rb1.displayRecipe(rc1).getText());
 
     }
 
     @Test
     public void testDisplaySelectedRecipe() {
-        assertEquals(rb1.displayRecipe(rc1), rb1.displaySelectedRecipe(rc1));
-        assertEquals("There are no Recipe with the given title", rb1.displaySelectedRecipe(null));
+        assertEquals(rb1.displayRecipe(rc1).getText(), rb1.displaySelectedRecipe(rc1).getText());
+        assertEquals("There are no Recipe with the given title", rb1.displaySelectedRecipe(null).getText());
     }
 
     @Test
