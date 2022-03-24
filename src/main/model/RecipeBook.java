@@ -5,6 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -45,18 +47,22 @@ public class RecipeBook implements Writable {
     }
 
     //EFFECTS: displays the recipe or else output false statement
-    public String displaySelectedRecipe(Recipe recipe) {
+    public JLabel displaySelectedRecipe(Recipe recipe) {
         if (recipe != null) {
             return displayRecipe(recipe);
         }
-        return "There are no Recipe with the given title";
+        JLabel label = new JLabel("There are no Recipe with the given title");
+        label.setBounds(300,100,500,500);
+        return label;
 
     }
 
     //EFFECTS: transform recipe to strings to display recipe.
-    public String displayRecipe(Recipe recipe) {
-        return recipe.getRecipeTitle() + "\n"
-                + recipe.getActualRecipe() + "\n" + recipe.getRecipeRating();
+    public JLabel displayRecipe(Recipe recipe) {
+        JLabel label = new JLabel(recipe.getRecipeTitle() + " "
+                + recipe.getActualRecipe() + " " + recipe.getRecipeRating());
+        label.setBounds(300,100,500,100);
+        return label;
 
     }
 
