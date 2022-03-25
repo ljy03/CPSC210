@@ -46,7 +46,7 @@ public class RecipeBook implements Writable {
         return null;
     }
 
-    //EFFECTS: displays the recipe or else output false statement
+    //EFFECTS: display recipe as jlabel or else output false statement as jlabel
     public JLabel displaySelectedRecipe(Recipe recipe) {
         if (recipe != null) {
             return displayRecipe(recipe);
@@ -57,7 +57,7 @@ public class RecipeBook implements Writable {
 
     }
 
-    //EFFECTS: transform recipe to strings to display recipe.
+    //EFFECTS: transform recipe to jlabel
     public JLabel displayRecipe(Recipe recipe) {
         JLabel label = new JLabel(recipe.getRecipeTitle() + " "
                 + recipe.getActualRecipe() + " " + recipe.getRecipeRating());

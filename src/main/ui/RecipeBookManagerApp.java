@@ -9,12 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class RecipeBookManagerApp extends JFrame {
     private static final String JSON_STORE = "./data/recipeBook.json";
@@ -51,7 +48,7 @@ public class RecipeBookManagerApp extends JFrame {
         recipeBook = new RecipeBook("My Recipe Book");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        setUpFrame();
+        welcomeFrame();
 
     }
 
@@ -106,6 +103,8 @@ public class RecipeBookManagerApp extends JFrame {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: goes back to the welcome frame
     private void back(JPanel jpanel) {
         backButton = new JButton("back");
         jpanel.add(backButton);
@@ -113,7 +112,9 @@ public class RecipeBookManagerApp extends JFrame {
         backButton.setBounds(600,450,100,50);
     }
 
-    private void setUpFrame() {
+    //MODIFIES: this
+    //EFFECTS: makes welcome frame
+    private void welcomeFrame() {
         welcomeFrame = new JFrame();
         welcomePanel = new JPanel(new GridLayout(6,0));
         JLabel welcomeLabel = new JLabel("My Recipe Manager App");
@@ -133,7 +134,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
-
+    //MODIFIES: this
+    //EFFECTS: initialize welcome frame buttons
     private void initWelcomeButton() {
         listButton = new JButton("see the list of recipes");
         addRecipeButton = new JButton("add new recipe to recipe book");
@@ -143,6 +145,8 @@ public class RecipeBookManagerApp extends JFrame {
         loadButton = new JButton("load recipe book");
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes welcome panel
     private void initWelcomePanel() {
         listButtonAction();
         addRecipeButtonAction();
@@ -159,6 +163,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes addRecipe Frame
     private void addRecipeFrame() {
         addRecipeFrame = new JFrame();
         addRecipePanel = new JPanel(null);
@@ -176,6 +182,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes addRecipe panel.
     private void addRecipePanel() {
         ImageIcon image = new ImageIcon(getClass().getResource("food.jpg"));
         JLabel foodPicture = new JLabel();
@@ -198,6 +206,8 @@ public class RecipeBookManagerApp extends JFrame {
         back(addRecipePanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes ViewRecipe Frame
     private void viewRecipeFrame() {
         viewRecipeFrame = new JFrame();
         viewRecipePanel = new JPanel(null);
@@ -215,6 +225,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes viewRecipe Panel
     private void viewRecipePanel() {
         int count = 0;
         for (JLabel j : printTitleOfRecipe(recipeBook.getRecipes())) {
@@ -234,6 +246,9 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: makes list Frame
     private void listFrame() {
         listFrame = new JFrame();
         listPanel = new JPanel(new GridLayout(6,1));
@@ -251,6 +266,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes list Panel
     private void listPanel() {
         for (JLabel j : printTitleOfRecipe(recipeBook.getRecipes())) {
             listPanel.add(j);
@@ -259,6 +276,8 @@ public class RecipeBookManagerApp extends JFrame {
         back(listPanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes change rating Frame
     private void changeRatingFrame() {
         changeRatingFrame = new JFrame();
         changeRatingPanel = new JPanel(null);
@@ -276,6 +295,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: makes change rating Panel
     private void changeRatingPanel() {
         int count = 0;
         for (JLabel j : printTitleOfRecipe(recipeBook.getRecipes())) {
@@ -298,6 +319,8 @@ public class RecipeBookManagerApp extends JFrame {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void listButtonAction() {
         listButton.addMouseListener(new MouseListener() {
             @Override
@@ -319,6 +342,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void addRecipeButtonAction() {
         addRecipeButton.addMouseListener(new MouseListener() {
             @Override
@@ -340,6 +365,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void viewRecipeButtonAction() {
         viewRecipeButton.addMouseListener(new MouseListener() {
             @Override
@@ -361,6 +388,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void changeRatingButtonAction() {
         changeRatingButton.addMouseListener(new MouseListener() {
             @Override
@@ -382,6 +411,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void saveButtonAction() {
         saveButton.addMouseListener(new MouseListener() {
             @Override
@@ -403,6 +434,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void loadButtonAction() {
         loadButton.addMouseListener(new MouseListener() {
             @Override
@@ -424,6 +457,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void backButtonAction(JPanel panel) {
         backButton.addMouseListener(new MouseListener() {
             @Override
@@ -446,6 +481,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void createRecipeButtonAction(JTextField tf1,JTextField tf2,JTextField tf3) {
         createButton.addMouseListener(new MouseListener() {
             @Override
@@ -471,6 +508,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void viewAnExistRecipeButtonAction(JTextField tf1) {
         viewAnExistRecipeButton.addMouseListener(new MouseListener() {
             @Override
@@ -494,6 +533,8 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates action for this button
     private void changeExactRatingButtonAction(JTextField tf1,JTextField tf2) {
         changeExactRatingButton.addMouseListener(new MouseListener() {
             @Override
