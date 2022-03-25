@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public class RecipeBookManagerApp extends JFrame {
     private static final String JSON_STORE = "./data/recipeBook.json";
-    private static Scanner input;
     private RecipeBook recipeBook;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -49,69 +48,11 @@ public class RecipeBookManagerApp extends JFrame {
 
     //constructs recipeBook and runs application
     public RecipeBookManagerApp() {
-        input = new Scanner(System.in);
         recipeBook = new RecipeBook("My Recipe Book");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         setUpFrame();
-        runRecipeBook();
 
-
-    }
-
-    // MODIFIES: this
-    // EFFECTS: processes user input
-    public void runRecipeBook() {
-        boolean end = false;
-        int command;
-        input = new Scanner(System.in);
-
-        while (!end) {
-            displayMenu();
-            command = input.nextInt();
-            input.nextLine();
-
-            if (command == 0) {
-                end = true;
-            } else {
-                processCommand(command);
-            }
-        }
-
-        System.out.println("\nGoodbye!");
-    }
-
-    // EFFECTS: displays menu of options to user
-    public void displayMenu() {
-        System.out.println("\nSelect from:");
-        System.out.println("\t1 -> see the list of recipes");
-        System.out.println("\t2 -> add new recipe to recipe book");
-        System.out.println("\t3 -> view an exist recipe");
-        System.out.println("\t4 -> change rating of an exist recipe");
-        System.out.println("\t5 -> save recipe book");
-        System.out.println("\t6 -> load recipe book");
-        System.out.println("\t0 -> quit program");
-
-    }
-
-    // MODIFIES: this
-    // EFFECTS: processes user command
-    private void processCommand(int command) {
-        if (command == 1) {
-            printTitleOfRecipe(recipeBook.getRecipes());
-        } else if (command == 2) {
-            //addRecipe(recipeBook);
-        } else if (command == 3) {
-            printTitleOfRecipe(recipeBook.getRecipes());
-            String name = input.nextLine();
-            System.out.println(recipeBook.displaySelectedRecipe(recipeBook.containsRecipe(name)));
-        } else if (command == 4) {
-//            changeRecipeRating(recipeBook);
-        } else if (command == 5) {
-            saveRecipeBook();
-        } else if (command == 6) {
-            loadRecipeBook();
-        }
     }
 
     //MODIFIES: this
