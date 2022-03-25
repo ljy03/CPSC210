@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -234,12 +236,17 @@ public class RecipeBookManagerApp extends JFrame {
     }
 
     private void addRecipePanel() {
+        ImageIcon image = new ImageIcon(getClass().getResource("food.jpg"));
+        JLabel foodPicture = new JLabel();
+        foodPicture.setIcon(image);
         JTextField tf1 = new JTextField("Enter Recipe Name");
         tf1.setBounds(50,50,150,20);
         JTextField tf2 = new JTextField("Enter Recipe");
         tf2.setBounds(50,100,150,20);
         JTextField tf3 = new JTextField("Enter Recipe Rating");
         tf3.setBounds(50,150,150,20);
+        foodPicture.setBounds(300,0,300,300);
+        addRecipePanel.add(foodPicture);
         createButton = new JButton("Create Recipe!");
         createButton.setBounds(50,200,150,20);
         addRecipePanel.add(tf1);
@@ -355,7 +362,6 @@ public class RecipeBookManagerApp extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 listFrame();
-                recipeBook.getRecipes();
             }
 
             @Override
