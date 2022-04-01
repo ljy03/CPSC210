@@ -39,3 +39,9 @@ Sample Event:
 Thu Mar 31 17:28:04 PDT 2022
 
 Fried Rice Recipe is created
+
+**Phase 4: Task 3**
+
+If I have More time, I will create a method for creating a frame in 
+RecipeManagerApp Class. So I can reduce duplicates code in frame
+related methods.

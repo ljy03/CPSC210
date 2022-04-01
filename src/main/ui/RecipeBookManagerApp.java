@@ -13,7 +13,6 @@ import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class RecipeBookManagerApp extends JFrame {
     private static final String JSON_STORE = "./data/recipeBook.json";
