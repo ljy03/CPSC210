@@ -6,10 +6,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
 public class RecipeBook implements Writable {
 
@@ -33,7 +30,7 @@ public class RecipeBook implements Writable {
     public void makeRecipe(String title, int rating, String information) {
         Recipe recipe = new Recipe(title, rating, information);
         recipes.add(recipe);
-
+        EventLog.getInstance().logEvent(new Event(title + " recipe is created"));
     }
 
     //EFFECTS: if the recipe exist, return the recipe.
@@ -49,10 +46,12 @@ public class RecipeBook implements Writable {
     //EFFECTS: display recipe as jlabel or else output false statement as jlabel
     public JLabel displaySelectedRecipe(Recipe recipe) {
         if (recipe != null) {
+            EventLog.getInstance().logEvent(new Event(recipe.getRecipeTitle() + " is displayed"));
             return displayRecipe(recipe);
         }
         JLabel label = new JLabel("There are no Recipe with the given title");
         label.setBounds(300,100,500,500);
+        EventLog.getInstance().logEvent(new Event("No Recipe is Displayed"));
         return label;
 
     }
@@ -70,6 +69,8 @@ public class RecipeBook implements Writable {
     //MODIFIES: this
     //EFFECTS: change an existing recipe's rating
     public void changeRecipeRating(Recipe recipe, int newRating) {
+        EventLog.getInstance().logEvent(new Event(recipe.getRecipeTitle()
+                + "'s Rating have been changed to " + newRating));
         recipe.setRecipeRating(newRating);
     }
 

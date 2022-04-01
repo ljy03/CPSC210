@@ -31,3 +31,11 @@ As a user, I want to be able to select a recipe in my collection and rate it on 
 As a user, I want to be able to save my recipe and ratings to recipe book
 
 As a user, I want to be able to be able to load my recipe and ratings to recipe book
+
+**Phase 4: Task 2**
+
+Sample Event:
+
+Thu Mar 31 17:28:04 PDT 2022
+
+Fried Rice Recipe is created

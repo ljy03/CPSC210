@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Recipe;
 import model.RecipeBook;
 import persistence.JsonWriter;
@@ -7,11 +9,11 @@ import persistence.JsonReader;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class RecipeBookManagerApp extends JFrame {
     private static final String JSON_STORE = "./data/recipeBook.json";
@@ -131,6 +133,7 @@ public class RecipeBookManagerApp extends JFrame {
         welcomeLabel.setVerticalAlignment(JLabel.TOP);
         welcomeLabel.setFont(new Font("Serif", Font.PLAIN, 30));
         welcomeFrame.setVisible(true);
+        welcomeFrame.addWindowListener(listener);
 
     }
 
@@ -143,6 +146,7 @@ public class RecipeBookManagerApp extends JFrame {
         changeRatingButton = new JButton("change rating of an exist recipe");
         saveButton = new JButton("save recipe book");
         loadButton = new JButton("load recipe book");
+
     }
 
     //MODIFIES: this
@@ -559,9 +563,17 @@ public class RecipeBookManagerApp extends JFrame {
         });
     }
 
-
-
-
+    WindowListener listener = new WindowAdapter() {
+        public void windowClosing(WindowEvent evt) {
+            Frame frame = (Frame) evt.getSource();
+            System.out.println(frame.getTitle() + " is Closed");
+            for (Event event : EventLog.getInstance()) {
+                System.out.println(event.getDate());
+                System.out.println(event.getDescription());
+                System.out.println(" ");
+            }
+        }
+    };
 
 }
 
